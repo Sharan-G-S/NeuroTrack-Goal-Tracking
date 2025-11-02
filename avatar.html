@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NeuroTrack | Avatar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600;700&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container nav-inner">
+      <a class="brand" href="index.html"><span class="logo"></span><span>NeuroTrack</span></a>
+      <div class="nav-links">
+        <a href="storyline.html">Storyline</a>
+        <a href="app.html">Main</a>
+        <a href="sync.html">Sync Levels</a>
+        <a href="avatar.html">Avatar</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container mt-6">
+    <section class="grid">
+      <div class="card reveal" style="grid-column: span 6; text-align:center;">
+        <h3>Preview</h3>
+        <div id="preview" class="mt-4"></div>
+      </div>
+      <div class="card reveal" style="grid-column: span 6;">
+        <h3>Customization</h3>
+        <div class="mt-2">
+          <label>Skin</label>
+          <input type="color" id="skin" value="#ffd1a9"/>
+        </div>
+        <div class="mt-2">
+          <label>Hair</label>
+          <input type="color" id="hair" value="#3b2f2f"/>
+        </div>
+        <div class="mt-2">
+          <label>Background</label>
+          <input type="color" id="color" value="#7dd3fc"/>
+        </div>
+        <div class="mt-4">
+          <button class="btn" id="save">Save</button>
+          <button class="btn secondary" id="random">Randomize</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="center"><div class="container">© <span id="year"></span> NeuroTrack</div></footer>
+
+  <script src="assets/js/common.js"></script>
+  <script src="assets/js/avatar.js"></script>
+</body>
+</html>

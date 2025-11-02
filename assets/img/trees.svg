@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="180" viewBox="0 0 1600 180" preserveAspectRatio="xMidYMax slice">
+  <defs>
+    <linearGradient id="t1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e4f9a"/>
+      <stop offset="100%" stop-color="#103b77"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="180" fill="url(#t1)"/>
+  <g fill="#1a64b8">
+    <path d="M30 150 l20 -40 l20 40 h-10 v20 h-20 v-20z"/>
+    <path d="M110 155 l18 -36 l18 36 h-8 v18 h-20 v-18z"/>
+    <path d="M190 152 l22 -44 l22 44 h-10 v22 h-24 v-22z"/>
+    <path d="M280 150 l20 -40 l20 40 h-10 v20 h-20 v-20z"/>
+    <path d="M360 155 l18 -36 l18 36 h-8 v18 h-20 v-18z"/>
+    <path d="M440 152 l22 -44 l22 44 h-10 v22 h-24 v-22z"/>
+    <path d="M530 150 l20 -40 l20 40 h-10 v20 h-20 v-20z"/>
+    <path d="M610 155 l18 -36 l18 36 h-8 v18 h-20 v-18z"/>
+    <path d="M690 152 l22 -44 l22 44 h-10 v22 h-24 v-22z"/>
+    <path d="M780 150 l20 -40 l20 40 h-10 v20 h-20 v-20z"/>
+    <path d="M860 155 l18 -36 l18 36 h-8 v18 h-20 v-18z"/>
+    <path d="M940 152 l22 -44 l22 44 h-10 v22 h-24 v-22z"/>
+    <path d="M1030 150 l20 -40 l20 40 h-10 v20 h-20 v-20z"/>
+    <path d="M1110 155 l18 -36 l18 36 h-8 v18 h-20 v-18z"/>
+    <path d="M1190 152 l22 -44 l22 44 h-10 v22 h-24 v-22z"/>
+    <path d="M1280 150 l20 -40 l20 40 h-10 v20 h-20 v-20z"/>
+    <path d="M1360 155 l18 -36 l18 36 h-8 v18 h-20 v-18z"/>
+    <path d="M1440 152 l22 -44 l22 44 h-10 v22 h-24 v-22z"/>
+  </g>
+  <rect y="170" width="1600" height="10" fill="#0d2f66"/>
+</svg>

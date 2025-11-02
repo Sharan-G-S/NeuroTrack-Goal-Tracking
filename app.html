@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NeuroTrack | Main Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600;700&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container nav-inner">
+      <a class="brand" href="index.html"><span class="logo"></span><span>NeuroTrack</span></a>
+      <div class="nav-links">
+        <a href="storyline.html">Storyline</a>
+        <a href="app.html">Main</a>
+        <a href="sync.html">Sync Levels</a>
+        <a href="avatar.html">Avatar</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container mt-6">
+    <section class="grid">
+      <div class="card reveal" style="grid-column: span 7;">
+        <h3>Tasks</h3>
+        <div class="tabs mt-2">
+          <button class="btn secondary" data-tab="daily">Daily</button>
+          <button class="btn secondary" data-tab="weekly">Weekly</button>
+          <button class="btn secondary" data-tab="long">Long‑term</button>
+          <button class="btn" style="float:right" id="addTaskBtn">+ Task</button>
+        </div>
+        <ul id="taskList" class="mt-4"></ul>
+        <p class="mt-2" id="emptyState" style="color:var(--muted); display:none">No tasks yet. Add one to begin.</p>
+      </div>
+      <div class="card reveal" style="grid-column: span 5;">
+        <h3>Goals & Schedules</h3>
+        <p class="mt-2" style="color:var(--muted)">Define recurring goals and when they should appear in your task lists.</p>
+        <ul id="goalList" class="mt-4"></ul>
+        <div class="mt-2" style="display:flex; gap:8px;">
+          <button class="btn" id="addGoal">+ Goal</button>
+        </div>
+      </div>
+      <div class="card reveal" style="grid-column: span 5;">
+        <h3>AI Companion</h3>
+        <div id="chat" style="height:260px; overflow:auto; border:1px dashed var(--border); border-radius:12px; padding:10px; background:#0b1233;">
+          <div style="opacity:.8">👋 I'm your Companion. Tell me a goal and I'll break it into steps.</div>
+        </div>
+        <div class="mt-2" style="display:flex; gap:8px;">
+          <input id="chatInput" placeholder="Type here..." style="flex:1; padding:10px; border-radius:8px; border:1px solid var(--border); background:#0d1542; color:var(--text)"/>
+          <select id="stepTarget" class="btn secondary" style="padding: 10px 12px;">
+            <option value="daily">Daily</option>
+            <option value="weekly">Weekly</option>
+            <option value="long">Long‑term</option>
+          </select>
+          <button class="btn" id="sendChat">Send</button>
+        </div>
+      </div>
+      <div class="card reveal link" style="grid-column: span 6;" onclick="location.href='avatar.html'">
+        <h3>Avatar</h3>
+        <div class="avatar-slot mt-2" data-size="96"></div>
+        <p class="mt-2">Tap to customize your avatar.</p>
+      </div>
+      <div class="card reveal link" style="grid-column: span 6;" onclick="location.href='sync.html'">
+        <h3>Progress Dashboard</h3>
+        <p class="mt-2">See your Sync Points, rank, and stability.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Modal for creating/editing goals -->
+  <div class="modal-backdrop" id="goalModal">
+    <div class="modal">
+      <h3 id="goalModalTitle">New Goal</h3>
+      <div class="row">
+        <label for="gName">Name</label>
+        <input id="gName" placeholder="e.g., Morning Run"/>
+      </div>
+      <div class="row">
+        <label for="gCadence">Cadence</label>
+        <select id="gCadence">
+          <option value="daily">Daily</option>
+          <option value="weekly">Weekly</option>
+          <option value="custom">Custom days</option>
+        </select>
+      </div>
+      <div class="row" id="gDaysRow" style="display:none">
+        <label>Days</label>
+        <div style="flex:1; display:flex; flex-wrap:wrap; gap:6px;">
+          <label><input type="checkbox" value="1"> Mon</label>
+          <label><input type="checkbox" value="2"> Tue</label>
+          <label><input type="checkbox" value="3"> Wed</label>
+          <label><input type="checkbox" value="4"> Thu</label>
+          <label><input type="checkbox" value="5"> Fri</label>
+          <label><input type="checkbox" value="6"> Sat</label>
+          <label><input type="checkbox" value="0"> Sun</label>
+        </div>
+      </div>
+      <div class="row">
+        <label for="gTime">Time</label>
+        <input id="gTime" type="time" />
+      </div>
+      <div class="row">
+        <label for="gNotes">Notes</label>
+        <textarea id="gNotes" rows="3" placeholder="Optional details..."></textarea>
+      </div>
+      <footer>
+        <button class="btn secondary" id="cancelGoal">Cancel</button>
+        <button class="btn" id="saveGoal">Save</button>
+      </footer>
+    </div>
+  </div>
+
+  <footer class="center"><div class="container">© <span id="year"></span> NeuroTrack</div></footer>
+
+  <script src="assets/js/common.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NeuroTrack | Storyline</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600;700&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container nav-inner">
+      <a class="brand" href="index.html"><span class="logo"></span><span>NeuroTrack</span></a>
+      <div class="nav-links">
+        <a href="storyline.html">Storyline</a>
+        <a href="app.html">Main</a>
+        <a href="sync.html">Sync Levels</a>
+        <a href="avatar.html">Avatar</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero" style="min-height: 55vh">
+    <div class="sky parallax" data-speed="-0.06"></div>
+    <div class="layer clouds parallax" data-speed="-0.05"></div>
+    <div class="layer mountains parallax" data-speed="-0.03"></div>
+    <div class="layer hills parallax" data-speed="-0.02"></div>
+    <div class="layer trees parallax" data-speed="-0.01"></div>
+    <div class="layer ground parallax" data-speed="0"></div>
+    <div class="content container reveal">
+      <h1>Storyline</h1>
+      <p>Every goal is a quest. Unlock chapters as you sync your daily energy.</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="grid mt-6" id="chapters">
+      <div class="card reveal link" data-chapter="1" style="grid-column: span 12;">
+        <h3>Chapter 1: Awakening</h3>
+        <p>Arrival in the Valley of Focus. Learn to channel Daily energy.</p>
+        <span class="arrow">Read →</span>
+      </div>
+      <div class="card reveal link" data-chapter="2" style="grid-column: span 12;">
+        <h3>Chapter 2: Momentum</h3>
+        <p>Weekly constellations take shape as your consistency stabilizes.</p>
+        <span class="arrow">Read →</span>
+      </div>
+      <div class="card reveal link" data-chapter="3" style="grid-column: span 12;">
+        <h3>Chapter 3: Mastery</h3>
+        <p>Long‑term arcs rewire your path; rank and avatar evolve.</p>
+        <span class="arrow">Read →</span>
+      </div>
+    </section>
+
+    <div class="center mt-6">
+      <button class="btn" onclick="location.href='app.html'">Continue to Main Hub →</button>
+    </div>
+  </main>
+
+  <!-- Chapter modal -->
+  <div class="modal-backdrop" id="chapterModal">
+    <div class="modal" style="max-width:720px">
+      <h3 id="chTitle">Chapter</h3>
+      <div id="chBody" style="white-space:pre-wrap; line-height:1.6"></div>
+      <footer>
+        <button class="btn secondary" id="closeChapter">Close</button>
+        <button class="btn" id="nextChapter">Next →</button>
+      </footer>
+    </div>
+  </div>
+
+  <footer class="center"><div class="container">© <span id="year"></span> NeuroTrack</div></footer>
+
+  <script src="assets/js/common.js"></script>
+  <script src="assets/js/scrollfx.js"></script>
+  <script src="assets/js/storyline.js"></script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

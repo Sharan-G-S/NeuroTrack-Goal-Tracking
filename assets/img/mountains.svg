@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="300" viewBox="0 0 1600 300" preserveAspectRatio="xMidYMax slice">
+  <!-- Transparent background so the page sky shows through for better contrast -->
+  <g fill="#4a75df"> <!-- back ridge (lighter, more saturated) -->
+    <path d="M0 250 L120 140 L210 200 L330 100 L450 220 L560 120 L720 240 L840 130 L980 210 L1100 150 L1200 210 L1320 120 L1480 220 L1600 160 L1600 300 L0 300 Z" opacity=".95"/>
+  </g>
+  <g fill="#1e3a8a"> <!-- front ridge (darker) -->
+    <path d="M0 260 L90 160 L210 230 L340 140 L480 230 L600 150 L760 250 L880 160 L1000 220 L1140 180 L1280 240 L1400 160 L1550 230 L1600 210 L1600 300 L0 300 Z"/>
+  </g>
+  <!-- Subtle snowcaps for separation -->
+  <g fill="#cfe3ff" opacity=".85">
+    <polygon points="330,100 360,120 300,120"/>
+    <polygon points="560,120 590,140 530,140"/>
+    <polygon points="840,130 870,150 810,150"/>
+    <polygon points="1100,150 1130,170 1070,170"/>
+    <polygon points="1320,120 1350,140 1290,140"/>
+  </g>
+</svg>

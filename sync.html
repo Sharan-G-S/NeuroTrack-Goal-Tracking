@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NeuroTrack | Neural Sync Levels</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600;700&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container nav-inner">
+      <a class="brand" href="index.html"><span class="logo"></span><span>NeuroTrack</span></a>
+      <div class="nav-links">
+        <a href="storyline.html">Storyline</a>
+        <a href="app.html">Main</a>
+        <a href="sync.html">Sync Levels</a>
+        <a href="avatar.html">Avatar</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="center mt-6">
+    <div class="container">
+      <h1 data-glitch="Neural Sync Levels" class="glitchy">Neural Sync Levels</h1>
+      <p class="mt-2" style="color:var(--muted)">Earn Sync Points from completed tasks. Stay active to keep stability high.</p>
+    </div>
+  </header>
+
+  <main class="container mt-6">
+    <section class="grid">
+      <div class="card reveal" style="grid-column: span 7;">
+        <h3>Sync Points</h3>
+        <div class="mt-2">
+          <div>Today: <b id="xpToday">0</b></div>
+          <div class="mt-2">7‑day Avg: <b id="xpAvg">0</b></div>
+          <div class="mt-2">Overall: <b id="xpTotal">0</b></div>
+        </div>
+        <div class="mt-4">
+          <div>Rank: <b id="rank">Seed</b></div>
+        </div>
+      </div>
+      <div class="card reveal" style="grid-column: span 5;">
+        <h3>Sync Stability</h3>
+        <p class="mt-2" id="stabilityHint" style="color:var(--muted)">Active</p>
+        <div class="energy mt-2" id="energy">
+          <div class="fill" id="energyFill"></div>
+        </div>
+        <p class="mt-2" style="color:var(--muted)">If you are inactive, the UI will glitch and your energy will drain.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="center"><div class="container">© <span id="year"></span> NeuroTrack</div></footer>
+
+  <script src="assets/js/common.js"></script>
+  <script src="assets/js/sync.js"></script>
+</body>
+</html>

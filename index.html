@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NeuroTrack | Goal Adventure</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600;700&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container nav-inner">
+      <a class="brand" href="index.html" aria-label="NeuroTrack home">
+        <span class="logo" aria-hidden="true"></span>
+        <span>NeuroTrack</span>
+      </a>
+      <div class="nav-links">
+        <a href="storyline.html">Storyline</a>
+        <a href="app.html">Main</a>
+        <a href="sync.html">Sync Levels</a>
+        <a href="avatar.html">Avatar</a>
+        <a href="#" class="btn" onclick="location.href='storyline.html'">Get started</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="sky parallax" data-speed="-0.06"></div>
+    <canvas id="starfield"></canvas>
+    <div class="layer clouds parallax" data-speed="-0.05"></div>
+    <div class="layer mountains parallax" data-speed="-0.03"></div>
+    <div class="layer hills parallax" data-speed="-0.02"></div>
+    <div class="layer ground parallax" data-speed="0"></div>
+
+    <div class="content container reveal">
+      <h1>Start your Goal Adventure</h1>
+      <p>Build habits, level up your consistency, and turn your goals into an interactive adventure with Tasks, a helpful Companion, an evolving Avatar, and Neural Sync Levels.</p>
+      <div>
+        <a href="storyline.html" class="btn" aria-label="Start">Get started</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Feature highlights with section-by-section choreography -->
+    <section class="section timeline">
+      <div class="scene">
+        <div class="illus choreo">
+          <div class="pixel-plate" aria-hidden="true">
+            <span class="y"></span><span class="y"></span><span></span><span></span><span class="p"></span><span class="p"></span><span></span><span></span>
+            <span class="y"></span><span class="y"></span><span></span><span></span><span class="p"></span><span class="p"></span><span></span><span></span>
+            <span></span><span></span><span class="y"></span><span class="y"></span><span></span><span></span><span class="p"></span><span class="p"></span>
+            <span></span><span></span><span class="y"></span><span class="y"></span><span></span><span></span><span class="p"></span><span class="p"></span>
+            <span></span><span></span><span></span><span></span><span class="y"></span><span class="y"></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span><span class="y"></span><span class="y"></span><span></span><span></span>
+            <span class="p"></span><span class="p"></span><span></span><span></span><span></span><span></span><span class="y"></span><span class="y"></span>
+            <span class="p"></span><span class="p"></span><span></span><span></span><span></span><span></span><span class="y"></span><span class="y"></span>
+          </div>
+        </div>
+        <div class="copy choreo">
+          <h2>Track goals like quests</h2>
+          <p class="lead">Create Daily, Weekly, and Long‑term tasks. Check them off to earn Sync Points and progress your story.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section timeline">
+      <div class="scene">
+        <div class="copy choreo">
+          <h2>Your AI Companion</h2>
+          <p class="lead">Describe a goal and get auto‑suggested steps you can one‑click into your Daily list.</p>
+        </div>
+        <div class="illus choreo">
+          <div class="pixel-plate" aria-hidden="true">
+            <span class="p"></span><span class="p"></span><span class="p"></span><span></span><span></span><span class="y"></span><span class="y"></span><span></span>
+            <span class="p"></span><span></span><span class="p"></span><span></span><span></span><span class="y"></span><span></span><span></span>
+            <span class="p"></span><span class="p"></span><span class="p"></span><span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span class="y"></span><span class="y"></span><span></span><span></span><span></span>
+            <span></span><span class="y"></span><span></span><span></span><span></span><span class="p"></span><span class="p"></span><span class="p"></span>
+            <span></span><span class="y"></span><span></span><span></span><span></span><span class="p"></span><span></span><span class="p"></span>
+            <span></span><span></span><span></span><span></span><span class="y"></span><span></span><span class="p"></span><span></span>
+            <span></span><span></span><span></span><span></span><span class="y"></span><span></span><span class="p"></span><span></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section timeline">
+      <div class="scene">
+        <div class="illus choreo">
+          <div class="avatar-slot" data-size="120"></div>
+        </div>
+        <div class="copy choreo">
+          <h2>Avatar that evolves</h2>
+          <p class="lead">Customize your look and see it across the app. As your Sync Points climb, your rank and vibe level up.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section timeline">
+      <div class="scene">
+        <div class="copy choreo">
+          <h2>Neural Sync Levels</h2>
+          <p class="lead">Stay active to keep your stability bar full. Idle too long and the interface glitches—re‑engage to recover energy.</p>
+        </div>
+        <div class="illus choreo">
+          <div class="energy" style="width:260px; margin:0 auto"><div class="fill" style="width:70%"></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Benefits grid -->
+    <section class="section reveal">
+      <h2 class="center">Why track with NeuroTrack?</h2>
+      <div class="features mt-4">
+        <div class="feature"><h3>🎯 Stay consistent</h3><p>Daily tasks and gentle XP rewards keep momentum without overwhelm.</p></div>
+        <div class="feature"><h3>⚡ Make it yours</h3><p>Goals & Schedules generate the right tasks on the right days automatically.</p></div>
+        <div class="feature"><h3>📊 See progress</h3><p>Sync Levels summarize today, your 7‑day average, and your total rank.</p></div>
+        <div class="feature"><h3>🤖 AI Guidance</h3><p>Companion breaks complex goals into actionable steps instantly.</p></div>
+        <div class="feature"><h3>🎨 Evolving Avatar</h3><p>Customize your pixel avatar that levels up as you complete goals.</p></div>
+        <div class="feature"><h3>⚙️ Smart Scheduling</h3><p>Set daily, weekly, or custom cadences—tasks appear automatically.</p></div>
+      </div>
+    </section>
+
+    <!-- How it works steps -->
+    <!-- How it works steps -->
+    <section class="section reveal">
+      <h2 class="center">How it works</h2>
+      <p class="center mt-2" style="color:var(--muted); max-width:640px; margin-left:auto; margin-right:auto;">Transform your goals into an adventure with these simple steps</p>
+      <div class="steps mt-4">
+        <div class="step"><b>Create a Goal</b><p class="mt-2" style="color:var(--muted)">Set cadence (daily/weekly/custom), time, and notes. Define what success looks like.</p></div>
+        <div class="step"><b>Check off tasks</b><p class="mt-2" style="color:var(--muted)">Today's due goals auto‑appear in your Daily list. Complete them to earn Sync Points.</p></div>
+        <div class="step"><b>Level up</b><p class="mt-2" style="color:var(--muted)">Earn Sync Points and climb ranks while your avatar evolves. Watch your consistency grow.</p></div>
+      </div>
+    </section>
+
+    <!-- New content section: What you get -->
+    <section class="section reveal">
+      <h2 class="center">Everything you need to succeed</h2>
+      <div class="grid mt-4">
+        <div class="card" style="grid-column: span 4;">
+          <h3>📝 Task Management</h3>
+          <p>Organize daily, weekly, and long-term tasks in one place. Rename, delete, or check off with ease.</p>
+        </div>
+        <div class="card" style="grid-column: span 4;">
+          <h3>📅 Goal Scheduling</h3>
+          <p>Create recurring goals with flexible schedules. Set specific days, times, and get automatic reminders.</p>
+        </div>
+        <div class="card" style="grid-column: span 4;">
+          <h3>🧠 Neural Sync System</h3>
+          <p>Track XP, rank progression, and stability. Stay active or watch the interface glitch as energy drains.</p>
+        </div>
+        <div class="card" style="grid-column: span 6;">
+          <h3>💬 Interactive Storyline</h3>
+          <p>Unlock chapters as you earn XP. Each chapter reveals new quests and deepens your journey through the Valley of Focus.</p>
+        </div>
+        <div class="card" style="grid-column: span 6;">
+          <h3>🎮 Gamified Progress</h3>
+          <p>Ranks from Seed to Legend. Visual rewards. Your consistency transforms into tangible achievements and unlocks.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- How it works steps -->
+    <section class="section reveal mt-6">
+      <h2 class="center">How it works</h2>
+      <div class="steps mt-4">
+        <div class="step"><b>Create a Goal</b><p class="mt-2" style="color:var(--muted)">Set cadence (daily/weekly/custom), time, and notes.</p></div>
+        <div class="step"><b>Check off tasks</b><p class="mt-2" style="color:var(--muted)">Today’s due goals auto‑appear in your Daily list.</p></div>
+        <div class="step"><b>Level up</b><p class="mt-2" style="color:var(--muted)">Earn Sync Points and climb ranks while your avatar evolves.</p></div>
+      </div>
+    </section>
+
+    <section class="grid mt-6">
+      <div class="card reveal">
+        <h3>Build your storyline</h3>
+        <p>Craft a narrative for your goals. Chapters unlock as you complete tasks.</p>
+        <a class="arrow" href="storyline.html">→</a>
+      </div>
+      <div class="card link reveal" onclick="location.href='app.html'">
+        <h3>Open the Main Hub</h3>
+        <p>Tasks, Companion, Avatar and Dashboard in one place.</p>
+        <span class="arrow">→</span>
+      </div>
+      <div class="card link reveal" onclick="location.href='sync.html'">
+        <h3>Neural Sync Levels</h3>
+        <p>Earn Sync Points and climb the ranks with your consistency.</p>
+        <span class="arrow">→</span>
+      </div>
+      <div class="card link reveal" onclick="location.href='avatar.html'">
+        <h3>Your Avatar</h3>
+        <p>Customize a retro avatar that grows with your progress.</p>
+        <div class="avatar-slot mt-2" data-size="56"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="center">
+    <div class="container">© <span id="year"></span> NeuroTrack • Theme inspired by pixel adventures</div>
+  </footer>
+
+  <script src="assets/js/common.js"></script>
+  <script src="assets/js/scrollfx.js"></script>
+  <script src="assets/js/home.js"></script>
+</body>
+</html>
