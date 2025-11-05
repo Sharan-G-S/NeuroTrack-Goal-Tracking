@@ -6,10 +6,34 @@
   <title>Zenith | Goal Adventure</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600;700&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Chakra+Petch:wght@400;600;700&family=Press+Start+2P&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 <body>
+  <!-- Debug banner: will display JS errors or status -->
+  <div id="debug-banner" style="position:fixed;left:12px;right:12px;top:12px;padding:10px 14px;background:linear-gradient(90deg,#ff6b6b,#ffb86b);color:#081022;font-weight:700;border-radius:8px;z-index:9999;box-shadow:0 8px 30px rgba(0,0,0,.6);font-family:system-ui;display:none">Debug</div>
+  <script>
+    // show debug banner early so it's visible even if other scripts error
+    (function(){
+      const b = document.getElementById('debug-banner');
+      b.style.display = 'block';
+      b.textContent = 'Zenith debug: HTML loaded — waiting for JS...';
+      // global error handler to display errors in the banner
+      window.addEventListener('error', function(ev){
+        console.error('Captured error', ev.error || ev.message);
+        b.style.display = 'block';
+        b.style.background = 'linear-gradient(90deg,#ff6b6b,#ff66c4)';
+        b.textContent = 'JS Error: ' + (ev.error && ev.error.message ? ev.error.message : ev.message || 'unknown');
+      });
+      window.addEventListener('unhandledrejection', function(ev){
+        console.error('Unhandled rejection', ev.reason);
+        b.style.display='block'; b.style.background='linear-gradient(90deg,#ff6b6b,#ff66c4)';
+        b.textContent = 'Promise Rejection: ' + (ev.reason && ev.reason.message ? ev.reason.message : String(ev.reason));
+      });
+      // expose a hook scripts can call to report healthy
+      window.__zenithReportHealthy = function(){ b.style.display='none'; };
+    })();
+  </script>
   <nav class="navbar">
     <div class="container nav-inner">
   <a class="brand" href="index.html" aria-label="Zenith home">
@@ -21,7 +45,7 @@
         <a href="app.html">Main</a>
         <a href="sync.html">Sync Levels</a>
         <a href="avatar.html">Avatar</a>
-        <a href="#" class="btn" onclick="location.href='storyline.html'">Get started</a>
+  <a href="#" class="btn" onclick="location.href='storyline.html?onboard=1'">Get started</a>
       </div>
     </div>
   </nav>
@@ -37,8 +61,8 @@
     <div class="content container reveal">
       <h1>Start your goal-tracking journey</h1>
       <p>Zenith learns your goals and builds evolving micro-tasks that adapt to your journey. Connect with your AI Companion, grow your avatar, and watch your Sync levels rise.</p>
-      <div class="cta">
-        <a href="storyline.html" class="btn primary pulse" aria-label="Start">Get Started</a>
+  <div class="cta">
+  <a href="storyline.html?onboard=1" class="btn primary pulse" aria-label="Start">Get Started</a>
         <a href="app.html" class="btn secondary" style="margin-left:12px">Open App</a>
       </div>
     </div>

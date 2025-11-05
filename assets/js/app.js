@@ -192,4 +192,6 @@
 
   renderGoals();
   render();
+  // Signal health to any debug banner added early in the page
+  if(window.__zenithReportHealthy) try{ window.__zenithReportHealthy(); }catch(e){ /* ignore */ }
 })();

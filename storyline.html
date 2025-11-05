@@ -6,7 +6,7 @@
   <title>Zenith | Storyline</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600;700&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Chakra+Petch:wght@400;600;700&family=Press+Start+2P&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 <body>
@@ -67,6 +67,37 @@
       <footer>
         <button class="btn secondary" id="closeChapter">Close</button>
         <button class="btn" id="nextChapter">Next →</button>
+      </footer>
+    </div>
+  </div>
+
+  <!-- Onboarding modal: appears when arriving from Get Started -->
+  <div class="modal-backdrop" id="onboardModal">
+    <div class="modal" style="max-width:640px">
+      <h3 id="onTitle">Welcome to Zenith</h3>
+      <div class="onboard-progress" aria-hidden="true">
+        <span class="step active" id="progStep1">1</span>
+        <span class="sep">→</span>
+        <span class="step" id="progStep2">2</span>
+      </div>
+      <div id="onBody">
+        <div id="step1">
+          <p>First, what's your name?</p>
+          <input id="onName" placeholder="Your name" style="width:100%; padding:10px; border-radius:8px; border:1px solid var(--border); background:#08102a; color:var(--text);" />
+        </div>
+        <div id="step2" style="display:none">
+          <p>Nice — what do you want to achieve first?</p>
+          <div style="display:flex; gap:8px; margin-bottom:10px">
+            <button class="btn" id="optShort">Short‑term</button>
+            <button class="btn" id="optLong">Long‑term</button>
+          </div>
+          <textarea id="onGoal" rows="3" placeholder="Briefly describe the goal" style="width:100%; padding:10px; border-radius:8px; border:1px solid var(--border); background:#08102a; color:var(--text);"></textarea>
+        </div>
+      </div>
+      <footer style="margin-top:12px; display:flex; justify-content:flex-end; gap:8px">
+        <button class="btn secondary" id="onCancel">Cancel</button>
+        <button class="btn" id="onNext">Next</button>
+        <button class="btn secondary small" id="onDemo" title="Fill demo data and continue">Quick demo</button>
       </footer>
     </div>
   </div>
