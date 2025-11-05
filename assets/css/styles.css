@@ -8,6 +8,9 @@
   --brand: #4de7ff; /* cyan */
   --brand-2: #7df3c9; /* mint */
   --accent: #7bd3ff; /* light blue */
+  --glass: rgba(255,255,255,.03);
+  --glass-2: rgba(255,255,255,.02);
+  --ease-fast: cubic-bezier(.2,.9,.3,1);
   --danger: #ff6b6b;
   --ok: #38ef7d;
   --card: #151a36cc;
@@ -26,6 +29,9 @@ body {
   font-family: "Chakra Petch", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   overflow-x: hidden;
 }
+
+/* slight smoothing for webfonts */
+body { -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; }
 
 /* Custom cursor hidden default, sparkle trail will act as cursor */
 body.custom-cursor { cursor: none; }
@@ -84,16 +90,24 @@ body.custom-cursor { cursor: none; }
 .hero .content { position: relative; z-index: 3; text-align:center; padding: 80px 0; color: var(--text); }
 .hero h1 { font-family: "Press Start 2P"; font-size: clamp(30px, 4.5vw, 68px); margin: 0 0 18px; text-shadow: 0 8px 30px rgba(0,0,0,.6); letter-spacing: .6px; }
 .hero p { color: rgba(230,240,255,.9); margin: 0 0 28px; font-size: 18px; max-width: 820px; margin-left:auto; margin-right:auto; }
-.hero .cta { margin-top: 18px; }
-.hero .cta .btn { padding: 14px 20px; border-radius: 14px; font-weight:900; box-shadow: 0 10px 30px rgba(0,0,0,.5); }
+.hero .cta { margin-top: 18px; display:flex; gap:12px; justify-content:center; }
+.hero .cta .btn { padding: 14px 22px; border-radius: 14px; font-weight:900; box-shadow: 0 10px 30px rgba(0,0,0,.5); transition: transform .28s var(--ease-fast), box-shadow .28s var(--ease-fast), filter .24s var(--ease-fast); }
+.btn.primary { background: linear-gradient(90deg, var(--brand), var(--accent)); color: #071028; box-shadow: 0 12px 36px rgba(34,168,210,.12), 0 2px 0 rgba(0,0,0,.35); transform: translateY(0); }
+.btn.primary:hover { transform: translateY(-4px); box-shadow: 0 18px 48px rgba(34,168,210,.18); filter: saturate(1.05); }
+.btn.secondary { --bg: #0f1a3a; --fg: var(--text); background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01)); color: var(--text); border:1px solid var(--glass); }
+
+/* subtle pulsing glow on primary CTAs */
+@keyframes pulse-glow { 0%{ box-shadow: 0 6px 20px rgba(77,231,255,.06); } 50%{ box-shadow: 0 18px 48px rgba(77,231,255,.12); } 100%{ box-shadow: 0 6px 20px rgba(77,231,255,.06); } }
+.btn.primary.pulse { animation: pulse-glow 2.6s infinite; }
 
 .badges { display:flex; justify-content:center; gap:18px; margin-top: 28px; opacity:.9; filter: saturate(.9); }
 .badges .badge { height: 26px; opacity:.9; }
 
 /* Cards grid */
 .grid { display:grid; grid-template-columns: repeat(12, 1fr); gap: 18px; position: relative; z-index: 3; }
-.card { grid-column: span 6; background: linear-gradient(180deg, rgba(11,17,48,.6), rgba(10,13,30,.5)); border:1px solid rgba(255,255,255,.04); border-radius: 16px; padding: 22px; box-shadow: 0 12px 36px rgba(6,10,28,.6); position:relative; overflow:hidden; backdrop-filter: blur(6px); }
-.card:hover { border-color: #3b4990; }
+.card { grid-column: span 6; background: linear-gradient(180deg, rgba(11,17,48,.6), rgba(10,13,30,.5)); border:1px solid rgba(255,255,255,.04); border-radius: 16px; padding: 22px; box-shadow: 0 12px 36px rgba(6,10,28,.6); position:relative; overflow:hidden; backdrop-filter: blur(6px); transition: transform .26s var(--ease-fast), box-shadow .26s var(--ease-fast); }
+.card:hover { transform: translateY(-6px) scale(1.01); box-shadow: 0 28px 60px rgba(6,10,28,.7); border-color: rgba(77,231,255,.06); }
+.card h3 { color: rgba(230,240,255,.98); }
 .card h3 { margin:6px 0 8px; font-size:18px; }
 .card p { margin:0; color: var(--muted); }
 .card.link { cursor: pointer; }
@@ -135,14 +149,22 @@ footer { padding: 40px 0; color: #9fb3ff; border-top: 1px solid var(--border); b
 .faq .q { grid-column: span 6; background:#0b1130; border:1px solid var(--border); border-radius:12px; padding:18px; }
 
 /* Chat / Companion styles */
-.chat-container { height: 260px; overflow:auto; border-radius:12px; padding:12px; background: linear-gradient(180deg, rgba(5,8,20,.35), rgba(6,10,28,.45)); border:1px solid rgba(255,255,255,.03); }
+.chat-container { height: 260px; overflow:auto; border-radius:12px; padding:12px; background: linear-gradient(180deg, rgba(5,8,20,.35), rgba(6,10,28,.45)); border:1px solid rgba(255,255,255,.03); display:flex; flex-direction:column; }
 .chat-bubble { display:inline-block; max-width:78%; padding:10px 12px; margin:8px 0; border-radius:12px; line-height:1.25; }
-.chat-bubble.user { background: linear-gradient(90deg, rgba(77,231,255,.12), rgba(125,243,201,.06)); color:var(--text); align-self:flex-end; margin-left:auto; border:1px solid rgba(77,231,255,.08); }
-.chat-bubble.zenith { background: linear-gradient(90deg, rgba(18,25,60,.6), rgba(10,14,30,.5)); color:rgba(230,240,255,.95); border:1px solid rgba(255,255,255,.03); }
+.chat-bubble.user { background: linear-gradient(90deg, rgba(77,231,255,.12), rgba(125,243,201,.06)); color:var(--text); align-self:flex-end; margin-left:auto; border:1px solid rgba(77,231,255,.08); box-shadow: 0 6px 18px rgba(77,231,255,.04); }
+.chat-bubble.zenith { background: linear-gradient(90deg, rgba(18,25,60,.6), rgba(10,14,30,.5)); color:rgba(230,240,255,.95); border:1px solid rgba(255,255,255,.03); box-shadow: 0 6px 20px rgba(3,10,30,.18); }
 .chat-row { display:flex; flex-direction:column; }
 .chat-input-row { display:flex; gap:8px; margin-top:10px; }
 .chat-input-row input { flex:1; border-radius:10px; padding:10px; border:1px solid rgba(255,255,255,.04); background: rgba(5,8,20,.5); color:var(--text); }
 .chat-input-row button { padding:10px 14px; border-radius:10px; }
+
+/* avatar slot subtle glow */
+.avatar-slot { width:100%; height:120px; background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01)); border-radius:12px; border:1px solid rgba(255,255,255,.02); display:inline-block; box-shadow: inset 0 -4px 6px rgba(0,0,0,.35); }
+.avatar-slot[data-size] { height: auto; padding: 18px; display:grid; place-items:center; }
+
+/* smoother reveal timing */
+.reveal { opacity: 0; transform: translateY(18px) scale(.995); transition: opacity .7s cubic-bezier(.2,.9,.3,1), transform .7s cubic-bezier(.2,.9,.3,1); }
+.reveal.visible { opacity: 1; transform: translateY(0) scale(1); }
 
 @media (max-width: 900px) {
   .nav-links { display:none; }
