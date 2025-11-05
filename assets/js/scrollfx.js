@@ -57,12 +57,5 @@
     update();
   }
 
-  // Gentle cloud bob via pointer
-  const clouds = document.querySelector('.layer.clouds');
-  if(clouds){
-    window.addEventListener('pointermove', (e)=>{
-      const fx = (e.clientX / window.innerWidth - .5)*6;
-      clouds.style.transform = `translateY(0px) translateX(${fx}px)`;
-    });
-  }
+  // Cloud effects removed — pointer-driven bob disabled.
 })();

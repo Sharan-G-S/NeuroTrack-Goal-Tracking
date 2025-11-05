@@ -87,8 +87,8 @@ body.custom-cursor { cursor: none; }
 .layer.mountains { bottom: 12vh; background-image: url('../img/mountains.svg'); opacity:.95; animation: slide-x 40s linear infinite; }
 .layer.hills { bottom: 6vh; background-image: url('../img/hills.svg'); opacity:.9; animation: slide-x 60s linear infinite reverse; }
 .layer.ground { bottom: 0; height: 16vh; background-image: url('../img/ground.svg'); opacity:1; image-rendering: pixelated; }
-/* Pixel clouds above mountains - pure white for visibility */
-.layer.clouds { top: 12vh; height: 22vh; background-image: url('../img/clouds.svg'); opacity:1; animation: slide-x 80s linear infinite; filter: drop-shadow(0 2px 4px rgba(0,0,0,.5)); left:0; }
+/* Clouds removed: styles kept commented for future reference */
+/* .layer.clouds { top: 12vh; height: 22vh; background-image: url('../img/clouds.svg'); opacity:1; animation: slide-x 80s linear infinite; filter: drop-shadow(0 2px 4px rgba(0,0,0,.5)); left:0; } */
 /* Treeline, slightly teal/blue to fit palette */
 .layer.trees { bottom: 3vh; height: 18vh; background-image: url('../img/trees.svg'); opacity:.95; image-rendering: pixelated; animation: slide-x 90s linear infinite reverse; }
 @keyframes slide-x { from { background-position-x: 0; } to { background-position-x: -1000px; } }
@@ -121,6 +121,19 @@ button:focus, input:focus, textarea:focus { outline: 3px solid rgba(125,243,201,
 .btn.primary { background: linear-gradient(90deg, var(--brand), var(--accent)); color: #071028; box-shadow: 0 12px 36px rgba(34,168,210,.12), 0 2px 0 rgba(0,0,0,.35); transform: translateY(0); }
 .btn.primary:hover { transform: translateY(-4px); box-shadow: 0 18px 48px rgba(34,168,210,.18); filter: saturate(1.05); }
 .btn.secondary { --bg: #0f1a3a; --fg: var(--text); background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01)); color: var(--text); border:1px solid var(--glass); }
+
+/* Slight UI polish: inputs and toast */
+input, textarea { font-family: inherit; font-size: 15px; line-height:1.4; }
+.chat-input-row input { padding:12px; }
+.btn { transition: transform .12s var(--ease-fast), box-shadow .12s var(--ease-fast), filter .12s var(--ease-fast); }
+
+/* Welcome toast */
+.toast { position: fixed; right: 20px; bottom: 26px; background: linear-gradient(90deg, rgba(13,30,60,.9), rgba(10,16,32,.9)); color: var(--text); padding: 12px 16px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,.5); z-index: 120; display:none; align-items:center; gap:10px; }
+.toast.show { display:flex; animation: toast-in .36s cubic-bezier(.2,.9,.3,1); }
+@keyframes toast-in { from { transform: translateY(8px); opacity:0 } to { transform: translateY(0); opacity:1 } }
+
+/* Slightly tighter card padding for denser UI */
+.card { padding: 18px; }
 
 /* subtle pulsing glow on primary CTAs */
 @keyframes pulse-glow { 0%{ box-shadow: 0 6px 20px rgba(77,231,255,.06); } 50%{ box-shadow: 0 18px 48px rgba(77,231,255,.12); } 100%{ box-shadow: 0 6px 20px rgba(77,231,255,.06); } }
