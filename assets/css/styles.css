@@ -5,9 +5,9 @@
   --bg-2: #131a3b;
   --text: #eef4ff;
   --muted: #a7b5d8;
-  --brand: #ffd44d; /* warm yellow */
-  --brand-2: #7dd3fc; /* sky */
-  --accent: #a78bfa; /* purple */
+  --brand: #4de7ff; /* cyan */
+  --brand-2: #7df3c9; /* mint */
+  --accent: #7bd3ff; /* light blue */
   --danger: #ff6b6b;
   --ok: #38ef7d;
   --card: #151a36cc;
@@ -65,6 +65,10 @@ body.custom-cursor { cursor: none; }
 .hero {
   position: relative; min-height: 84vh; display:grid; place-items:center; overflow:hidden;
 }
+/* full-bleed hero background to mirror Zenith sample */
+.hero::before{
+  content: ""; position:absolute; inset:0; z-index:0; background-image: url('https://zenith-evolve-sphere.lovable.app/assets/hero-background-ujnbSNlO.jpg'); background-size:cover; background-position:center; opacity:0.95; filter: saturate(.95) contrast(.95);
+}
 .hero .sky { position:absolute; inset:-10% -10% 0 -10%; background: radial-gradient(120% 100% at 50% 0%, #1a2b6f, #0c1240 60%, #0a0f2a 100%); z-index:0; }
 .hero canvas#starfield { position:absolute; inset:0; z-index:1; pointer-events:none; opacity:.9; }
 .hero .layer { position:absolute; inset:auto; width:120%; left:-10%; height:50vh; background-repeat:repeat-x; background-size: contain; }
@@ -77,16 +81,18 @@ body.custom-cursor { cursor: none; }
 .layer.trees { bottom: 3vh; height: 18vh; background-image: url('../img/trees.svg'); opacity:.95; image-rendering: pixelated; animation: slide-x 90s linear infinite reverse; }
 @keyframes slide-x { from { background-position-x: 0; } to { background-position-x: -1000px; } }
 
-.hero .content { position: relative; z-index: 2; text-align:center; padding: 60px 0; }
-.hero h1 { font-family: "Press Start 2P"; font-size: clamp(28px, 3.5vw, 56px); margin: 0 0 18px; text-shadow: 0 4px 0 #000; }
-.hero p { color: var(--muted); margin: 0 0 28px; font-size: 18px; max-width: 720px; margin-left:auto; margin-right:auto; }
+.hero .content { position: relative; z-index: 3; text-align:center; padding: 80px 0; color: var(--text); }
+.hero h1 { font-family: "Press Start 2P"; font-size: clamp(30px, 4.5vw, 68px); margin: 0 0 18px; text-shadow: 0 8px 30px rgba(0,0,0,.6); letter-spacing: .6px; }
+.hero p { color: rgba(230,240,255,.9); margin: 0 0 28px; font-size: 18px; max-width: 820px; margin-left:auto; margin-right:auto; }
+.hero .cta { margin-top: 18px; }
+.hero .cta .btn { padding: 14px 20px; border-radius: 14px; font-weight:900; box-shadow: 0 10px 30px rgba(0,0,0,.5); }
 
 .badges { display:flex; justify-content:center; gap:18px; margin-top: 28px; opacity:.9; filter: saturate(.9); }
 .badges .badge { height: 26px; opacity:.9; }
 
 /* Cards grid */
 .grid { display:grid; grid-template-columns: repeat(12, 1fr); gap: 18px; position: relative; z-index: 3; }
-.card { grid-column: span 6; background: var(--card); border:1px solid var(--border); border-radius: 16px; padding: 22px; box-shadow: var(--shadow); position:relative; overflow:hidden; }
+.card { grid-column: span 6; background: linear-gradient(180deg, rgba(11,17,48,.6), rgba(10,13,30,.5)); border:1px solid rgba(255,255,255,.04); border-radius: 16px; padding: 22px; box-shadow: 0 12px 36px rgba(6,10,28,.6); position:relative; overflow:hidden; backdrop-filter: blur(6px); }
 .card:hover { border-color: #3b4990; }
 .card h3 { margin:6px 0 8px; font-size:18px; }
 .card p { margin:0; color: var(--muted); }
@@ -127,6 +133,16 @@ footer { padding: 40px 0; color: #9fb3ff; border-top: 1px solid var(--border); b
 .step b { display: block; margin-bottom: 8px; font-size: 16px; color: var(--text); }
 .faq { display:grid; grid-template-columns: repeat(12, 1fr); gap:18px; position: relative; z-index: 3; }
 .faq .q { grid-column: span 6; background:#0b1130; border:1px solid var(--border); border-radius:12px; padding:18px; }
+
+/* Chat / Companion styles */
+.chat-container { height: 260px; overflow:auto; border-radius:12px; padding:12px; background: linear-gradient(180deg, rgba(5,8,20,.35), rgba(6,10,28,.45)); border:1px solid rgba(255,255,255,.03); }
+.chat-bubble { display:inline-block; max-width:78%; padding:10px 12px; margin:8px 0; border-radius:12px; line-height:1.25; }
+.chat-bubble.user { background: linear-gradient(90deg, rgba(77,231,255,.12), rgba(125,243,201,.06)); color:var(--text); align-self:flex-end; margin-left:auto; border:1px solid rgba(77,231,255,.08); }
+.chat-bubble.zenith { background: linear-gradient(90deg, rgba(18,25,60,.6), rgba(10,14,30,.5)); color:rgba(230,240,255,.95); border:1px solid rgba(255,255,255,.03); }
+.chat-row { display:flex; flex-direction:column; }
+.chat-input-row { display:flex; gap:8px; margin-top:10px; }
+.chat-input-row input { flex:1; border-radius:10px; padding:10px; border:1px solid rgba(255,255,255,.04); background: rgba(5,8,20,.5); color:var(--text); }
+.chat-input-row button { padding:10px 14px; border-radius:10px; }
 
 @media (max-width: 900px) {
   .nav-links { display:none; }

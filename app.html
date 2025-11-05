@@ -43,14 +43,14 @@
           <button class="btn" id="addGoal">+ Goal</button>
         </div>
       </div>
-      <div class="card reveal" style="grid-column: span 5;">
+      <div class="card reveal" style="grid-column: span 5; display:flex; flex-direction:column;">
         <h3>Zenith AI Companion</h3>
-        <div id="chat" style="height:260px; overflow:auto; border:1px dashed var(--border); border-radius:12px; padding:10px; background:#0b1233;">
-          <div style="opacity:.8">🤖 Hi — I'm Zenith, your AI Companion. Tell me a goal and I'll suggest actionable steps.</div>
+        <div id="chat" class="chat-container" role="log" aria-live="polite">
+          <!-- messages rendered here -->
         </div>
-        <div class="mt-2" style="display:flex; gap:8px;">
-          <input id="chatInput" placeholder="Type here..." style="flex:1; padding:10px; border-radius:8px; border:1px solid var(--border); background:#0d1542; color:var(--text)"/>
-          <select id="stepTarget" class="btn secondary" style="padding: 10px 12px;">
+        <div class="chat-input-row mt-2">
+          <input id="chatInput" placeholder="Describe a goal, e.g. 'Train for a 5k'" />
+          <select id="stepTarget" class="btn secondary">
             <option value="daily">Daily</option>
             <option value="weekly">Weekly</option>
             <option value="long">Long‑term</option>

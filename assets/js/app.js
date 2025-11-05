@@ -76,19 +76,45 @@
   const stepTarget = document.getElementById('stepTarget');
   function sendChat(){
     const msg = input.value.trim(); if(!msg) return; input.value='';
-  chat.insertAdjacentHTML('beforeend', `<div style="margin-top:6px">🧑‍💻 <b>You:</b> ${msg}</div>`);
-  const steps = suggestSteps(msg);
-  chat.insertAdjacentHTML('beforeend', `<div style=\"margin-top:6px\">🤖 <b>Zenith:</b> ${steps.map((s,i)=> `${i+1}. ${s}`).join(' ')} <button class='btn secondary' style='margin-left:8px' id='addSteps'>Add to ${stepTarget?.value||'daily'}</button></div>`);
+    // persist user message
+    state.companion = state.companion || [];
+    const userEntry = { who: 'user', text: msg, ts: Date.now() };
+    state.companion.push(userEntry);
+    window.updateState({ companion: state.companion });
+    renderChat();
+
+    const steps = suggestSteps(msg);
+    const botEntry = { who: 'zenith', text: steps.map((s,i)=> `${i+1}. ${s}`).join(' '), steps, ts: Date.now() };
+    state.companion.push(botEntry);
+    window.updateState({ companion: state.companion });
+    renderChat();
+  }
+  function renderChat(){
+    chat.innerHTML = '';
+    (state.companion||[]).forEach((m,i)=>{
+      const cls = m.who==='user' ? 'chat-bubble user' : 'chat-bubble zenith';
+      const el = document.createElement('div'); el.className = 'chat-row';
+      const bubble = document.createElement('div'); bubble.className = cls; bubble.innerHTML = m.text;
+      el.appendChild(bubble);
+      if(m.who==='zenith'){
+        const addBtn = document.createElement('button'); addBtn.className = 'btn secondary'; addBtn.style.marginLeft='8px'; addBtn.textContent = 'Add to '+(stepTarget?.value||'daily');
+        addBtn.addEventListener('click', ()=>{
+          const target = stepTarget?.value || 'daily';
+          (m.steps||[]).forEach(s=> state.tasks[target].push({ text: s, done:false }));
+          window.updateState({ tasks: state.tasks });
+          render();
+        });
+        const wrapper = document.createElement('div'); wrapper.style.marginTop='6px'; wrapper.appendChild(addBtn);
+        el.appendChild(wrapper);
+      }
+      chat.appendChild(el);
+    });
     chat.scrollTop = chat.scrollHeight;
-    document.getElementById('addSteps').onclick = ()=>{
-      const target = stepTarget?.value || 'daily';
-      steps.forEach(s=> state.tasks[target].push({ text: s, done:false }));
-      window.updateState({ tasks: state.tasks });
-      render();
-    };
   }
   document.getElementById('sendChat').addEventListener('click', sendChat);
   input.addEventListener('keydown', (e)=>{ if(e.key==='Enter'){ e.preventDefault(); sendChat(); }});
+  // render persisted companion history on load
+  renderChat();
   function suggestSteps(goal){
     if(!goal) return ["Define outcome","Pick a deadline","Set first action"];
     const g = goal.toLowerCase();
