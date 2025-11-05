@@ -23,3 +23,27 @@ python3 -m http.server 5173
 - All data is stored in your browser's localStorage under the `goaltrack.v1` key.
 - To swap the hero background with your own reference image, replace or update the SVGs in `assets/img/` or set custom CSS background images for `.layer.mountains`, `.layer.hills`, `.layer.ground`.
 - The design is mobile‑responsive and mirrors the feel of Codédex while staying original.
+
+## Onboarding & Demo
+
+Zenith includes a lightweight onboarding flow to get new users started quickly.
+
+- Trigger onboarding from the home page by clicking the primary "Get Started" button (or open `storyline.html?onboard=1`).
+- The onboarding modal asks for your name, then whether the goal is short‑term or long‑term and a brief description.
+- A "Quick demo" button will auto-fill a sample name and a starter goal and then redirect to the Main Hub.
+
+Data created by onboarding is saved to localStorage under the `goaltrack.v1` key. To inspect or inject sample data manually, open DevTools Console and run:
+
+```javascript
+// Example: inject demo state and open the Main Hub
+const sample = {
+	user: { name: 'Player' },
+	goals: [{ name: 'Read 10 pages daily', cadence: 'daily', days: [], time: '', notes: 'Added via onboarding' }],
+	tasks: { daily: [{ text: 'Starter: Read 10 pages daily', done: false }], weekly: [], long: [] },
+	onboarded: true
+};
+localStorage.setItem('goaltrack.v1', JSON.stringify(sample));
+location.href = 'app.html';
+```
+
+This is useful for testing the Main Hub without stepping through the modal.

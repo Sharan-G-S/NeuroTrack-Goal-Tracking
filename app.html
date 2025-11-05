@@ -10,26 +10,7 @@
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 <body>
-  <!-- Debug banner: will display JS errors or status -->
-  <div id="debug-banner" style="position:fixed;left:12px;right:12px;top:12px;padding:10px 14px;background:linear-gradient(90deg,#ff6b6b,#ffb86b);color:#081022;font-weight:700;border-radius:8px;z-index:9999;box-shadow:0 8px 30px rgba(0,0,0,.6);font-family:system-ui;display:none">Debug</div>
-  <script>
-    (function(){
-      const b = document.getElementById('debug-banner');
-      b.style.display = 'block';
-      b.textContent = 'Zenith debug: HTML loaded — waiting for JS...';
-      window.addEventListener('error', function(ev){
-        console.error('Captured error', ev.error || ev.message);
-        b.style.display = 'block'; b.style.background='linear-gradient(90deg,#ff6b6b,#ff66c4)';
-        b.textContent = 'JS Error: ' + (ev.error && ev.error.message ? ev.error.message : ev.message || 'unknown');
-      });
-      window.addEventListener('unhandledrejection', function(ev){
-        console.error('Unhandled rejection', ev.reason);
-        b.style.display='block'; b.style.background='linear-gradient(90deg,#ff6b6b,#ff66c4)';
-        b.textContent = 'Promise Rejection: ' + (ev.reason && ev.reason.message ? ev.reason.message : String(ev.reason));
-      });
-      window.__zenithReportHealthy = function(){ b.style.display='none'; };
-    })();
-  </script>
+  
   <nav class="navbar">
     <div class="container nav-inner">
   <a class="brand" href="index.html"><span class="logo"></span><span>Zenith</span></a>
