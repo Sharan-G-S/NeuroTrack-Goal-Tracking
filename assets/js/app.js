@@ -76,9 +76,9 @@
   const stepTarget = document.getElementById('stepTarget');
   function sendChat(){
     const msg = input.value.trim(); if(!msg) return; input.value='';
-    chat.insertAdjacentHTML('beforeend', `<div style="margin-top:6px">🧑‍💻 <b>You:</b> ${msg}</div>`);
-    const steps = suggestSteps(msg);
-    chat.insertAdjacentHTML('beforeend', `<div style=\"margin-top:6px\">🤖 <b>Companion:</b> ${steps.map((s,i)=> `${i+1}. ${s}`).join(' ')} <button class='btn secondary' style='margin-left:8px' id='addSteps'>Add to ${stepTarget?.value||'daily'}</button></div>`);
+  chat.insertAdjacentHTML('beforeend', `<div style="margin-top:6px">🧑‍💻 <b>You:</b> ${msg}</div>`);
+  const steps = suggestSteps(msg);
+  chat.insertAdjacentHTML('beforeend', `<div style=\"margin-top:6px\">🤖 <b>Zenith:</b> ${steps.map((s,i)=> `${i+1}. ${s}`).join(' ')} <button class='btn secondary' style='margin-left:8px' id='addSteps'>Add to ${stepTarget?.value||'daily'}</button></div>`);
     chat.scrollTop = chat.scrollHeight;
     document.getElementById('addSteps').onclick = ()=>{
       const target = stepTarget?.value || 'daily';

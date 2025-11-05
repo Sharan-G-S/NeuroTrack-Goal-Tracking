@@ -1,6 +1,6 @@
-# NeuroTrack — Goal Tracking Adventure
+# Zenith — Goal Tracking Adventure
 
-A pixel‑adventure themed goal tracker inspired by Codédex aesthetics. Includes parallax hero, scroll reveals, cursor sparkle, tasks with localStorage, basic AI companion (on‑device heuristic), avatar customization, and a Neural Sync XP system with inactivity‑driven glitch/energy effects.
+A pixel‑adventure themed goal tracker inspired by Codédex aesthetics. Includes parallax hero, scroll reveals, cursor sparkle, tasks with localStorage, an AI Companion (on‑device heuristic), avatar customization, and a Sync XP system with inactivity‑driven glitch/energy effects.
 
 ## Pages
 - `index.html` — Home hero with parallax and CTA
