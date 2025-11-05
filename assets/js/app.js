@@ -192,5 +192,14 @@
 
   renderGoals();
   render();
-})();
+  // Show a small welcome toast after onboarding (one-time)
+  try{
+    if(state.onboarded && state.user && !state._welcomeShown){
+      const toast = document.getElementById('welcomeToast');
+      const wt = document.getElementById('welcomeText');
+      if(toast && wt){ wt.textContent = `Welcome, ${state.user.name || 'Friend'} — let’s begin!`; toast.classList.add('show'); setTimeout(()=> toast.classList.remove('show'), 4200); }
+      state._welcomeShown = true; window.updateState({ _welcomeShown: true });
+    }
+  }catch(e){ /* ignore */ }
+
 })();
